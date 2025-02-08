@@ -20,6 +20,30 @@ function setupSlides() {
 
   slides.forEach((slide, i) => {
     slide.style.left = `${i * w}px`; // 依序排列投影片，對每張投影片往左移一張投影片的距離
+
+    // 個別調整圖片的顯示範圍
+    if (i === 0) {
+      const img = slide.querySelector("img");
+      //img.style.clipPath = "inset(10% 5% 10% 5%)";
+      //img.style.objectFit = "contain";
+      //img.style.objectPosition = "center 40%";
+      //img.style.objectFit = "cover";
+      //img.style.objectPosition = "center"; // 微調顯示區域
+    }
+    if (i === 1) {
+      const img = slide.querySelector("img");
+      img.style.objectPosition = "center 10%"; // 略微向上調整，確保構圖合適
+    }
+    if (i === 3) {
+      const img = slide.querySelector("img");
+      //img.style.objectPosition = "center 65%"; // 圖片往下移 15%
+      img.style.objectFit = "contain"; // 讓圖片完整顯示，避免過度裁切
+      img.style.objectPosition = "center 60%"; // 略微向下調整，確保構圖合適
+    }
+    if (i === 4) {
+      const img = slide.querySelector("img");
+      img.style.objectFit = "contain";
+    }
   });
 
   setNavigatorBoundary(currentIndex); // 初始化時判斷箭頭按鈕是否需要隱藏
