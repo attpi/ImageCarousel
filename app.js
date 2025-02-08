@@ -1,8 +1,10 @@
 // 程式碼寫這裡
-const slides = document.querySelectorAll(".slide");
-const track = document.querySelector(".slide-track");
-const prevBtn = document.querySelector(".prev-btn");
-const nextBtn = document.querySelector(".next-btn");
+
+const carousel = document.querySelector(".carousel");
+const track = carousel.querySelector(".slide-track");
+const slides = carousel.querySelectorAll(".slide");
+const prevBtn = carousel.querySelector(".prev-btn");
+const nextBtn = carousel.querySelector(".next-btn");
 let currentIndex = 0;
 
 function setupSlides() {
