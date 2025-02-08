@@ -18,12 +18,14 @@ function setupSlides() {
     slide.style.left = `${i * w}px`;
   });
   setNavigatorBoundary(currentIndex); // 在一開始(初始化時)就啟動隱藏箭頭的功能
+  updateIndicator(currentIndex);
 }
 
 function moveSlide(index) {
   const w = track.clientWidth; // 抓取投影片框的寬度
   track.style.transform = `translateX(-${index * w}px)`;
   setNavigatorBoundary(index);
+  updateIndicator(index);
 }
 
 function setNavigatorBoundary(index) {
@@ -41,6 +43,16 @@ function setNavigatorBoundary(index) {
 }
 
 // =====================================
+function updateIndicator(index) {
+  indicators.forEach((indicator) => {
+    if (Number(indicator.dataset.index) === index) {
+      indicator.classList.add("active");
+    } else {
+      indicator.classList.remove("active");
+    }
+  });
+}
+
 nextBtn.addEventListener("click", () => {
   currentIndex++;
   moveSlide(currentIndex); // 移動投影片到"第幾張"
