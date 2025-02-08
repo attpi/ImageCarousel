@@ -5,6 +5,9 @@ const track = carousel.querySelector(".slide-track");
 const slides = carousel.querySelectorAll(".slide");
 const prevBtn = carousel.querySelector(".prev-btn");
 const nextBtn = carousel.querySelector(".next-btn");
+const navigator = carousel.querySelector(".navigator");
+const indicators = navigator.querySelectorAll(".indicator");
+
 let currentIndex = 0;
 
 function setupSlides() {
@@ -46,6 +49,14 @@ nextBtn.addEventListener("click", () => {
 prevBtn.addEventListener("click", () => {
   currentIndex--;
   moveSlide(currentIndex);
+});
+
+navigator.addEventListener("click", (e) => {
+  if (e.target.matches("button")) {
+    const dot = e.target;
+    const dotIndex = Number(dot.dataset.index);
+    moveSlide(dotIndex);
+  }
 });
 
 setupSlides();
