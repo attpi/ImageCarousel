@@ -12,6 +12,7 @@ function setupSlides() {
     // 對每張投影片往左移一張投影片的距離
     slide.style.left = `${i * w}px`;
   });
+  setNavigatorBoundary(currentIndex); // 在一開始(初始化時)就啟動隱藏箭頭的功能
 }
 
 function moveSlide(index) {
@@ -21,6 +22,7 @@ function moveSlide(index) {
 }
 
 function setNavigatorBoundary(index) {
+  // 設定一個函數，可以隱藏箭頭
   if (index === 0) {
     prevBtn.classList.add("hide");
     nextBtn.classList.remove("hide");
