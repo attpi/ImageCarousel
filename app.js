@@ -17,8 +17,23 @@ function setupSlides() {
 function moveSlide(index) {
   const w = track.clientWidth; // 抓取投影片框的寬度
   track.style.transform = `translateX(-${index * w}px)`;
+  setNavigatorBoundary(index);
 }
 
+function setNavigatorBoundary(index) {
+  if (index === 0) {
+    prevBtn.classList.add("hide");
+    nextBtn.classList.remove("hide");
+  } else if (index === slides.length - 1) {
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.add("hide");
+  } else {
+    prevBtn.classList.remove("hide");
+    nextBtn.classList.remove("hide");
+  }
+}
+
+// =====================================
 nextBtn.addEventListener("click", () => {
   currentIndex++;
   moveSlide(currentIndex); // 移動投影片到"第幾張"

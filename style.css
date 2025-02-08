@@ -82,3 +82,7 @@ body {
 .carousel nav > .indicator.active {
   background-color: rgba(0, 0, 0, 0.7);
 }
+
+.hide {
+  display: none;
+}
