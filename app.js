@@ -21,4 +21,11 @@ nextBtn.addEventListener("click", () => {
   track.style.transform = `translateX(-${currentIndex * w}px)`;
 });
 
+prevBtn.addEventListener("click", () => {
+  currentIndex--;
+
+  const w = track.clientWidth; // 抓取投影片框的寬度
+  track.style.transform = `translateX(-${currentIndex * w}px)`;
+});
+
 setupSlides();
