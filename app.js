@@ -14,18 +14,19 @@ function setupSlides() {
   });
 }
 
+function moveSlide(index) {
+  const w = track.clientWidth; // 抓取投影片框的寬度
+  track.style.transform = `translateX(-${index * w}px)`;
+}
+
 nextBtn.addEventListener("click", () => {
   currentIndex++;
-
-  const w = track.clientWidth; // 抓取投影片框的寬度
-  track.style.transform = `translateX(-${currentIndex * w}px)`;
+  moveSlide(currentIndex); // 移動投影片到"第幾張"
 });
 
 prevBtn.addEventListener("click", () => {
   currentIndex--;
-
-  const w = track.clientWidth; // 抓取投影片框的寬度
-  track.style.transform = `translateX(-${currentIndex * w}px)`;
+  moveSlide(currentIndex);
 });
 
 setupSlides();
